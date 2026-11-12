@@ -1,103 +1,465 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>CyberSafe</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0b1020;
-            color: white;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberSafe | Stay Alert, Stay Protected</title>
 
-        header {
-            background: #151d38;
-            padding: 20px;
-        }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-        nav a {
-            color: white;
-            margin: 10px;
-            text-decoration: none;
-        }
+body {
+  font-family: Arial, sans-serif;
+  background: #080f20;
+  color: white;
+  line-height: 1.7;
+}
 
-        .hero {
-            padding: 70px 20px;
-        }
+header {
+  background: #101c35;
+  padding: 18px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-        h1 {
-            color: #55d6ff;
-            font-size: 38px;
-        }
+.logo {
+  color: #20d9f5;
+  font-size: 25px;
+  font-weight: bold;
+}
 
-        .hero p {
-            color: #cbd5e1;
-            font-size: 18px;
-        }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
 
-        .button {
-            display: inline-block;
-            background: #1677ff;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-        }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
 
-        .section {
-            background: #151d38;
-            margin: 20px;
-            padding: 25px;
-            border-radius: 12px;
-        }
+nav a:hover {
+  color: #20d9f5;
+}
 
-        footer {
-            padding: 20px;
-            color: #aaa;
-        }
-    </style>
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #101c35, #123c61);
+}
+
+.hero h1 {
+  font-size: 40px;
+  color: #20d9f5;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 17px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  background: #13c9e8;
+  color: #061323;
+  padding: 12px 25px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+section {
+  padding: 65px 8%;
+  text-align: center;
+}
+
+section h2 {
+  color: #20d9f5;
+  margin-bottom: 25px;
+  font-size: 29px;
+}
+
+.intro {
+  background: #12213c;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #142642;
+  padding: 25px;
+  border: 1px solid #234563;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #20d9f5;
+}
+
+.card h3 {
+  color: #20d9f5;
+  margin-bottom: 12px;
+}
+
+.tips {
+  background: #101c35;
+}
+
+.tips ul {
+  display: inline-block;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.tips li {
+  margin: 12px 0;
+}
+
+.tools {
+  background: #12213c;
+}
+
+input {
+  width: 100%;
+  max-width: 350px;
+  padding: 13px;
+  margin: 12px 0;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+}
+
+#strength, #quizResult {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.quiz-question {
+  margin: 20px auto;
+  max-width: 500px;
+  background: #142642;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.quiz-question button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #203c5b;
+  color: white;
+  border: 1px solid #20d9f5;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.quiz-question button:hover {
+  background: #12617a;
+}
+
+.report {
+  background: #101c35;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #070b16;
+  color: #aab7c8;
+}
+
+@media(max-width: 600px) {
+  header {
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  section {
+    padding: 45px 5%;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h2>🛡️ CyberSafe</h2>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#attacks">Cyber Attacks</a>
-        <a href="#tips">Safety Tips</a>
-    </nav>
+  <div class="logo">🛡 CyberSafe</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#crimes">Cyber Crimes</a>
+    <a href="#tips">Safety Tips</a>
+    <a href="#tools">Tools</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#report">Report</a>
+  </nav>
 </header>
 
-<section class="hero" id="home">
-    <h1>Stay Safe in the Digital World</h1>
-    <p>Learn cybersecurity. Protect your digital identity.</p>
-    <a href="#tips" class="button">Explore Safety Tips</a>
+<div class="hero" id="home">
+  <h1>Stay Safe in the Digital World</h1>
+  <p>Learn cybersecurity. Protect your digital identity.</p>
+  <a href="#crimes" class="btn">Explore Cyber Safety</a>
+</div>
+
+<section class="intro">
+  <h2>What is Cybersecurity?</h2>
+  <p>
+    Cybersecurity means protecting computers, mobile phones,
+    networks and personal information from digital threats.
+    It helps us stay safe while using the internet.
+  </p>
 </section>
 
-<section class="section" id="attacks">
-    <h2>What is Cybersecurity?</h2>
-    <p>Cybersecurity is the practice of protecting computers,
-    networks and personal information from digital threats.</p>
-    <h3>Common Cyber Attacks</h3>
-    <p>Phishing | Malware | Password Attacks | Identity Theft</p>
+<section id="crimes">
+  <h2>Types of Cyber Crimes</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>🎣 Phishing</h3>
+      <p>Fake emails and messages designed to steal personal information.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔐 Identity Theft</h3>
+      <p>Using another person's personal information without permission.</p>
+    </div>
+
+    <div class="card">
+      <h3>💳 Online Fraud</h3>
+      <p>Scams that trick people into sending money or sharing banking details.</p>
+    </div>
+
+    <div class="card">
+      <h3>🦠 Malware</h3>
+      <p>Harmful software that can damage devices or compromise information.</p>
+    </div>
+
+    <div class="card">
+      <h3>👤 Cyberbullying</h3>
+      <p>Harassing or threatening someone through digital platforms.</p>
+    </div>
+
+    <div class="card">
+      <h3>📱 Social Media Scams</h3>
+      <p>Fake profiles, suspicious links and misleading online offers.</p>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="tips">
-    <h2>Online Safety Tips</h2>
-    <p>1. Use strong and unique passwords.</p>
-    <p>2. Never share your OTP.</p>
-    <p>3. Enable two-factor authentication.</p>
-    <p>4. Avoid suspicious links.</p>
-    <p>5. Keep your software updated.</p>
+<section class="tips" id="tips">
+  <h2>Online Safety Tips</h2>
+
+  <ul>
+    <li>Use strong and unique passwords.</li>
+    <li>Never share your OTP with anyone.</li>
+    <li>Enable two-factor authentication.</li>
+    <li>Avoid clicking suspicious links.</li>
+    <li>Keep your software updated.</li>
+    <li>Use secure websites (HTTPS).</li>
+    <li>Think before sharing personal information.</li>
+    <li>Verify unknown callers and messages.</li>
+  </ul>
+</section>
+
+<section class="tools" id="tools">
+  <h2>Password Strength Demo</h2>
+  <p>Try a made-up sample password to understand password strength.</p>
+  <p><strong>Never enter your real password here.</strong></p>
+
+  <input
+    type="password"
+    id="password"
+    placeholder="Enter a sample password"
+    autocomplete="off"
+  >
+
+  <p id="strength">Strength: Not checked</p>
+</section>
+
+<section id="quiz">
+  <h2>Cyber Awareness Quiz</h2>
+  <p>Test your cybersecurity knowledge!</p>
+
+  <div id="quizContainer"></div>
+  <p id="quizResult"></p>
+</section>
+
+<section class="report" id="report">
+  <h2>Report Cyber Crime in India</h2>
+  <p>
+    If you experience online financial fraud or another cybercrime,
+    seek help through official government channels.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>📞 Helpline: 1930</h3>
+      <p>National cybercrime helpline for assistance with cyber fraud.</p>
+    </div>
+
+    <div class="card">
+      <h3>🌐 Official Portal</h3>
+      <p>Visit the Government of India's National Cyber Crime Reporting Portal.</p>
+      <br>
+      <a class="btn"
+         href="https://cybercrime.gov.in/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Visit Portal
+      </a>
+    </div>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 CyberSafe | Stay Alert. Stay Protected.</p>
+  <p>© 2026 CyberSafe | Stay Alert, Stay Protected</p>
+  <p>Cyber Awareness Educational Project</p>
 </footer>
+
+<script>
+
+// Password strength demonstration
+const password = document.getElementById("password");
+
+password.addEventListener("input", function() {
+  const value = password.value;
+  let score = 0;
+
+  if (value.length >= 8) score++;
+  if (/[A-Z]/.test(value)) score++;
+  if (/[a-z]/.test(value)) score++;
+  if (/[0-9]/.test(value)) score++;
+  if (/[^A-Za-z0-9]/.test(value)) score++;
+
+  let message = "Very weak";
+
+  if (score >= 2) message = "Weak";
+  if (score >= 3) message = "Moderate";
+  if (score >= 4) message = "Strong";
+  if (score === 5 && value.length >= 12) message = "Very strong";
+
+  document.getElementById("strength").textContent =
+    "Strength: " + (value.length ? message : "Not checked");
+});
+
+// Cyber awareness quiz
+const questions = [
+  {
+    question: "1. Should you share your OTP with strangers?",
+    answers: ["Yes", "No"],
+    correct: "No"
+  },
+  {
+    question: "2. What should you do with a suspicious link?",
+    answers: ["Click it", "Avoid and verify it"],
+    correct: "Avoid and verify it"
+  },
+  {
+    question: "3. Which password is safer?",
+    answers: ["123456", "A unique long password"],
+    correct: "A unique long password"
+  },
+  {
+    question: "4. What is phishing?",
+    answers: ["A cyber scam", "A computer update"],
+    correct: "A cyber scam"
+  },
+  {
+    question: "5. What is India's cybercrime helpline?",
+    answers: ["1930", "1000"],
+    correct: "1930"
+  }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function showQuestion() {
+  const container = document.getElementById("quizContainer");
+  const result = document.getElementById("quizResult");
+
+  if (currentQuestion >= questions.length) {
+    container.innerHTML = "";
+    result.textContent =
+      "Quiz completed! Your score: " + score +
+      " / " + questions.length;
+
+    const restart = document.createElement("button");
+    restart.textContent = "Try Again";
+    restart.className = "btn";
+    restart.style.marginTop = "20px";
+
+    restart.onclick = function() {
+      currentQuestion = 0;
+      score = 0;
+      result.textContent = "";
+      showQuestion();
+    };
+
+    container.appendChild(restart);
+    return;
+  }
+
+  const q = questions[currentQuestion];
+  container.innerHTML = "";
+
+  const box = document.createElement("div");
+  box.className = "quiz-question";
+
+  const heading = document.createElement("h3");
+  heading.textContent = q.question;
+  box.appendChild(heading);
+
+  q.answers.forEach(function(answer) {
+    const button = document.createElement("button");
+    button.textContent = answer;
+
+    button.onclick = function() {
+      if (answer === q.correct) {
+        score++;
+      }
+
+      currentQuestion++;
+      showQuestion();
+    };
+
+    box.appendChild(button);
+  });
+
+  container.appendChild(box);
+}
+
+showQuestion();
+
+</script>
 
 </body>
 </html>
