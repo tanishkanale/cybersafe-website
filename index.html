@@ -448,6 +448,159 @@ function nextQuestion() {
   document.getElementById("score").textContent = "";
 }
  
+<!-- CYBERSECURITY QUIZ -->
+<section id="cyber-quiz" style="max-width:850px;margin:40px auto;padding:25px;background:#111827;color:white;border-radius:18px;font-family:Arial,sans-serif;">
+
+  <h2 style="text-align:center;color:#38bdf8;">🛡️ Cybersecurity Quiz</h2>
+  <p style="text-align:center;">Test your cybersecurity knowledge!</p>
+
+  <div id="quiz-question" style="font-size:19px;font-weight:bold;margin:25px 0 15px;"></div>
+
+  <div id="quiz-options"></div>
+
+  <p id="quiz-feedback" style="margin-top:15px;"></p>
+
+  <button id="quiz-next" onclick="nextCyberQuestion()" style="display:none;padding:12px 22px;background:#0284c7;color:white;border:0;border-radius:8px;margin-top:15px;">
+    Next Question →
+  </button>
+
+  <div id="quiz-result" style="text-align:center;margin-top:20px;"></div>
+
+  <button id="quiz-restart" onclick="startCyberQuiz()" style="display:none;padding:12px 22px;background:#16a34a;color:white;border:0;border-radius:8px;">
+    Restart Quiz
+  </button>
+</section>
+
+<style>
+#cyber-quiz button { cursor:pointer; }
+.quiz-option {
+  display:block;
+  width:100%;
+  padding:13px;
+  margin:9px 0;
+  border:1px solid #38bdf8;
+  border-radius:9px;
+  background:#1e293b;
+  color:white;
+  text-align:left;
+  font-size:15px;
+}
+.quiz-option:disabled { opacity:0.8; }
+.quiz-option:hover:not(:disabled) { background:#334155; }
+</style>
+
+<script>
+const cyberQuestions = [
+ {
+  q:"What does HTTPS indicate?",
+  a:["A secure connection","A free website","A social media account","An offline website"],
+  c:0
+ },
+ {
+  q:"What should you do with a suspicious email link?",
+  a:["Click immediately","Forward it to everyone","Avoid clicking and verify the sender","Enter your password"],
+  c:2
+ },
+ {
+  q:"Which is the safest password practice?",
+  a:["Use your birthday","Reuse one password everywhere","Share passwords with friends","Use long, unique passwords"],
+  c:3
+ },
+ {
+  q:"What is phishing?",
+  a:["A computer game","A trick to steal sensitive information","A software update","A type of firewall"],
+  c:1
+ },
+ {
+  q:"What should you do when using public Wi-Fi?",
+  a:["Share banking details","Turn off all security","Avoid sensitive transactions on untrusted networks","Share your OTP"],
+  c:2
+ }
+];
+
+let cyberIndex = 0;
+let cyberScore = 0;
+let cyberAnswered = false;
+
+function startCyberQuiz() {
+  cyberIndex = 0;
+  cyberScore = 0;
+  document.getElementById("quiz-restart").style.display = "none";
+  document.getElementById("quiz-result").textContent = "";
+  showCyberQuestion();
+}
+
+function showCyberQuestion() {
+  cyberAnswered = false;
+  const q = cyberQuestions[cyberIndex];
+
+  document.getElementById("quiz-question").textContent =
+    "Question " + (cyberIndex + 1) + " of " + cyberQuestions.length + ": " + q.q;
+
+  document.getElementById("quiz-feedback").textContent = "";
+  document.getElementById("quiz-next").style.display = "none";
+
+  const options = document.getElementById("quiz-options");
+  options.innerHTML = "";
+
+  q.a.forEach((answer, i) => {
+    const btn = document.createElement("button");
+    btn.className = "quiz-option";
+    btn.textContent = answer;
+    btn.onclick = () => checkCyberAnswer(i);
+    options.appendChild(btn);
+  });
+}
+
+function checkCyberAnswer(selected) {
+  if (cyberAnswered) return;
+  cyberAnswered = true;
+
+  const q = cyberQuestions[cyberIndex];
+  const buttons = document.querySelectorAll("#quiz-options button");
+
+  buttons.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.c) btn.style.border = "2px solid #22c55e";
+    if (i === selected && selected !== q.c)
+      btn.style.border = "2px solid #ef4444";
+  });
+
+  const feedback = document.getElementById("quiz-feedback");
+
+  if (selected === q.c) {
+    cyberScore++;
+    feedback.textContent = "✅ Correct answer! Well done.";
+  } else {
+    feedback.textContent = "❌ Not quite! The correct answer is: " + q.a[q.c];
+  }
+
+  document.getElementById("quiz-next").style.display = "inline-block";
+  document.getElementById("quiz-next").textContent =
+    cyberIndex === cyberQuestions.length - 1 ? "See My Score" : "Next Question →";
+}
+
+function nextCyberQuestion() {
+  if (!cyberAnswered) return;
+
+  cyberIndex++;
+
+  if (cyberIndex < cyberQuestions.length) {
+    showCyberQuestion();
+  } else {
+    document.getElementById("quiz-question").textContent = "Quiz Completed! 🎉";
+    document.getElementById("quiz-options").innerHTML = "";
+    document.getElementById("quiz-feedback").textContent = "";
+    document.getElementById("quiz-next").style.display = "none";
+    document.getElementById("quiz-result").textContent =
+      "Your score: " + cyberScore + " / " + cyberQuestions.length;
+    document.getElementById("quiz-restart").style.display = "inline-block";
+  }
+}
+
+startCyberQuiz();
+</script>
+ 
 
 </body>
 </html>
