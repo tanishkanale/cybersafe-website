@@ -1,342 +1,117 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <div id="loader">
-  <div class="loader-shield">🛡️</div>
-  <h2>CyberSafe</h2>
-  <p>Securing your digital world...</p>
-</div>
-
-<div id="progressBar"></div>
-
-<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  ↑
-</button>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CyberSafe | Stay Alert, Stay Protected</title>
+<title>CyberSafe | Cybersecurity Awareness</title>
 
 <style>
-  /* CyberSafe Upgrade 2.0 */
-
-#loader {
-  position: fixed;
-  inset: 0;
-  background: #080f20;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s;
-}
-
-.loader-shield {
-  font-size: 65px;
-  animation: pulse 1.2s infinite alternate;
-}
-
-#loader h2 {
-  color: #20d9f5;
-  margin-top: 15px;
-}
-
-#loader p {
-  color: #aab7c8;
-}
-
-@keyframes pulse {
-  from { transform: scale(1); }
-  to { transform: scale(1.2); }
-}
-
-#progressBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0;
-  background: #20d9f5;
-  z-index: 10000;
-}
-
-#topBtn {
-  position: fixed;
-  bottom: 25px;
-  right: 22px;
-  width: 45px;
-  height: 45px;
-  border: none;
-  border-radius: 50%;
-  background: #20d9f5;
-  color: #080f20;
-  font-size: 25px;
-  cursor: pointer;
-  display: none;
-  z-index: 100;
-}
-
-.card {
-  transition: transform 0.35s, box-shadow 0.35s,
-              border-color 0.35s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 22px rgba(32,217,245,0.2);
-  border-color: #20d9f5;
-}
-
-.btn {
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 18px rgba(32,217,245,0.5);
-}
-
-.hero h1 {
-  animation: fadeIn 1.2s ease;
-}
-
-.hero p {
-  animation: fadeIn 1.8s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 0.7s, transform 0.7s;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ scroll-behavior:smooth;
 }
-
 body {
-  font-family: Arial, sans-serif;
-  background: #080f20;
-  color: white;
-  line-height: 1.7;
+ font-family:Arial,sans-serif;
+ background:#07111f;
+ color:#eaf2ff;
+ line-height:1.6;
 }
-
 header {
-  background: #101c35;
-  padding: 18px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+ background:#0c1c30;
+ padding:20px 8%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
 }
-
-.logo {
-  color: #20d9f5;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
+.logo {color:#38bdf8;font-size:26px;font-weight:bold;}
 nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
+ color:white;
+ text-decoration:none;
+ margin:10px;
 }
-
-nav a:hover {
-  color: #20d9f5;
-}
-
+nav a:hover {color:#38bdf8;}
 .hero {
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #101c35, #123c61);
+ padding:90px 8%;
+ text-align:center;
+ background:linear-gradient(135deg,#0b2545,#102d46);
 }
-
-.hero h1 {
-  font-size: 40px;
-  color: #20d9f5;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 17px;
-  margin-bottom: 25px;
-}
-
+.hero h1 {font-size:42px;margin-bottom:15px;}
+.hero span {color:#38bdf8;}
+.hero p {max-width:650px;margin:auto;color:#c5d5e8;}
 .btn {
-  display: inline-block;
-  background: #13c9e8;
-  color: #061323;
-  padding: 12px 25px;
-  border-radius: 7px;
-  text-decoration: none;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
+ display:inline-block;
+ margin-top:25px;
+ padding:12px 25px;
+ background:#0284c7;
+ color:white;
+ text-decoration:none;
+ border-radius:7px;
 }
-
-section {
-  padding: 65px 8%;
-  text-align: center;
+section {padding:65px 8%;}
+.section-title {
+ text-align:center;
+ font-size:30px;
+ margin-bottom:30px;
+ color:#38bdf8;
 }
-
-section h2 {
-  color: #20d9f5;
-  margin-bottom: 25px;
-  font-size: 29px;
-}
-
-.intro {
-  background: #12213c;
-}
-
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:20px;
 }
-
 .card {
-  background: #142642;
-  padding: 25px;
-  border: 1px solid #234563;
-  border-radius: 12px;
-  transition: 0.3s;
+ background:#10243a;
+ padding:25px;
+ border-radius:12px;
+ border:1px solid #203c57;
+ transition:.3s;
 }
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #20d9f5;
+.card:hover {transform:translateY(-5px);border-color:#38bdf8;}
+.card h3 {color:#38bdf8;margin-bottom:10px;}
+.card p {color:#c5d5e8;}
+.warning {color:#fbbf24;}
+.tip {
+ background:#10243a;
+ padding:25px;
+ border-left:4px solid #38bdf8;
+ border-radius:8px;
+ max-width:750px;
+ margin:auto;
 }
-
-.card h3 {
-  color: #20d9f5;
-  margin-bottom: 12px;
+.quiz {
+ max-width:650px;
+ margin:auto;
+ background:#10243a;
+ padding:25px;
+ border-radius:12px;
 }
-
-.tips {
-  background: #101c35;
+.quiz button {
+ display:block;
+ width:100%;
+ padding:12px;
+ margin:10px 0;
+ background:#193752;
+ border:1px solid #31536d;
+ color:white;
+ border-radius:6px;
+ cursor:pointer;
 }
-
-.tips ul {
-  display: inline-block;
-  text-align: left;
-  margin-top: 10px;
-}
-
-.tips li {
-  margin: 12px 0;
-}
-
-.tools {
-  background: #12213c;
-}
-
-input {
-  width: 100%;
-  max-width: 350px;
-  padding: 13px;
-  margin: 12px 0;
-  border-radius: 6px;
-  border: none;
-  font-size: 16px;
-}
-
-#strength, #quizResult {
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.quiz-question {
-  margin: 20px auto;
-  max-width: 500px;
-  background: #142642;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.quiz-question button {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  background: #203c5b;
-  color: white;
-  border: 1px solid #20d9f5;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.quiz-question button:hover {
-  background: #12617a;
-}
-
-.report {
-  background: #101c35;
-}
-
+.quiz button:hover {background:#0284c7;}
+#result {margin-top:15px;color:#38bdf8;font-weight:bold;}
 footer {
-  text-align: center;
-  padding: 25px;
-  background: #070b16;
-  color: #aab7c8;
+ text-align:center;
+ background:#0c1c30;
+ padding:25px;
+ color:#9fb3c8;
 }
-
-@media(max-width: 600px) {
-  header {
-    justify-content: center;
-  }
-
-  .hero h1 {
-    font-size: 30px;
-  }
-
-  section {
-    padding: 45px 5%;
-  }
+@media(max-width:600px) {
+ .hero h1 {font-size:32px;}
+ header {justify-content:center;gap:12px;}
+ nav {text-align:center;}
 }
 </style>
 </head>
@@ -344,302 +119,135 @@ footer {
 <body>
 
 <header>
-  <div class="logo">🛡 CyberSafe</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#crimes">Cyber Crimes</a>
-    <a href="#tips">Safety Tips</a>
-    <a href="#tools">Tools</a>
-    <a href="#quiz">Quiz</a>
-    <a href="#report">Report</a>
-  </nav>
+<div class="logo">🛡 CyberSafe</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#learn">Learn</a>
+<a href="#tips">Safety Tips</a>
+<a href="#quiz">Quiz</a>
+</nav>
 </header>
 
 <div class="hero" id="home">
-  <h1>Stay Safe in the Digital World</h1>
-  <p>Learn cybersecurity. Protect your digital identity.</p>
-  <a href="#crimes" class="btn">Explore Cyber Safety</a>
+<h1>Stay Smart. <span>Stay Safe.</span></h1>
+<p>Welcome to CyberSafe – your guide to understanding cybersecurity, protecting your digital identity and staying safe in the online world.</p>
+<a href="#learn" class="btn">Explore Cyber Safety</a>
 </div>
 
-<section class="intro">
-  <h2>What is Cybersecurity?</h2>
-  <p>
-    Cybersecurity means protecting computers, mobile phones,
-    networks and personal information from digital threats.
-    It helps us stay safe while using the internet.
-  </p>
+<section id="learn">
+<h2 class="section-title">Explore Cybersecurity</h2>
+<div class="cards">
+<div class="card">
+<h3>🔐 Password Security</h3>
+<p>Learn why strong, unique passwords and multi-factor authentication help protect your accounts.</p>
+</div>
+<div class="card">
+<h3>🎣 Phishing Awareness</h3>
+<p>Understand suspicious emails, fake links and online messages designed to steal information.</p>
+</div>
+<div class="card">
+<h3>🌐 Safe Browsing</h3>
+<p>Discover safe browsing habits and how to identify suspicious websites.</p>
+</div>
+<div class="card">
+<h3>👤 Privacy Protection</h3>
+<p>Protect personal information and understand privacy settings on social media.</p>
+</div>
+<div class="card">
+<h3>📱 Social Media Safety</h3>
+<p>Learn to recognize fake profiles, suspicious requests and unsafe online interactions.</p>
+</div>
+<div class="card">
+<h3>🦠 Malware Awareness</h3>
+<p>Understand malware, its common forms and ways to reduce digital security risks.</p>
+</div>
+</div>
 </section>
 
-<section id="crimes">
-  <h2>Types of Cyber Crimes</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>🎣 Phishing</h3>
-      <p>Fake emails and messages designed to steal personal information.</p>
-    </div>
-
-    <div class="card">
-      <h3>🔐 Identity Theft</h3>
-      <p>Using another person's personal information without permission.</p>
-    </div>
-
-    <div class="card">
-      <h3>💳 Online Fraud</h3>
-      <p>Scams that trick people into sending money or sharing banking details.</p>
-    </div>
-
-    <div class="card">
-      <h3>🦠 Malware</h3>
-      <p>Harmful software that can damage devices or compromise information.</p>
-    </div>
-
-    <div class="card">
-      <h3>👤 Cyberbullying</h3>
-      <p>Harassing or threatening someone through digital platforms.</p>
-    </div>
-
-    <div class="card">
-      <h3>📱 Social Media Scams</h3>
-      <p>Fake profiles, suspicious links and misleading online offers.</p>
-    </div>
-  </div>
-</section>
-
-<section class="tips" id="tips">
-  <h2>Online Safety Tips</h2>
-
-  <ul>
-    <li>Use strong and unique passwords.</li>
-    <li>Never share your OTP with anyone.</li>
-    <li>Enable two-factor authentication.</li>
-    <li>Avoid clicking suspicious links.</li>
-    <li>Keep your software updated.</li>
-    <li>Use secure websites (HTTPS).</li>
-    <li>Think before sharing personal information.</li>
-    <li>Verify unknown callers and messages.</li>
-  </ul>
-</section>
-
-<section class="tools" id="tools">
-  <h2>Password Strength Demo</h2>
-  <p>Try a made-up sample password to understand password strength.</p>
-  <p><strong>Never enter your real password here.</strong></p>
-
-  <input
-    type="password"
-    id="password"
-    placeholder="Enter a sample password"
-    autocomplete="off"
-  >
-
-  <p id="strength">Strength: Not checked</p>
+<section id="tips">
+<h2 class="section-title">Essential Safety Tips</h2>
+<div class="tip">
+<p>✅ Use a different strong password for every account.</p>
+<p>✅ Enable two-factor authentication.</p>
+<p>✅ Never share OTPs or passwords.</p>
+<p>✅ Avoid clicking unknown links.</p>
+<p>✅ Keep your apps and devices updated.</p>
+<p>✅ Report suspicious online activity.</p>
+</div>
 </section>
 
 <section id="quiz">
-  <h2>Cyber Awareness Quiz</h2>
-  <p>Test your cybersecurity knowledge!</p>
-
-  <div id="quizContainer"></div>
-  <p id="quizResult"></p>
-</section>
-
-<section class="report" id="report">
-  <h2>Report Cyber Crime in India</h2>
-  <p>
-    If you experience online financial fraud or another cybercrime,
-    seek help through official government channels.
-  </p>
-
-  <div class="cards">
-    <div class="card">
-      <h3>📞 Helpline: 1930</h3>
-      <p>National cybercrime helpline for assistance with cyber fraud.</p>
-    </div>
-
-    <div class="card">
-      <h3>🌐 Official Portal</h3>
-      <p>Visit the Government of India's National Cyber Crime Reporting Portal.</p>
-      <br>
-      <a class="btn"
-         href="https://cybercrime.gov.in/"
-         target="_blank"
-         rel="noopener noreferrer">
-        Visit Portal
-      </a>
-    </div>
-  </div>
+<h2 class="section-title">Test Your Cybersecurity Knowledge</h2>
+<div class="quiz">
+<h3 id="question">What should you do if you receive a suspicious link?</h3>
+<div id="answers">
+<button onclick="check(false)">Click it immediately</button>
+<button onclick="check(true)">Avoid clicking and verify the sender</button>
+<button onclick="check(false)">Share it with friends</button>
+</div>
+<p id="result"></p>
+<button onclick="nextQuestion()">Next Question →</button>
+</div>
 </section>
 
 <footer>
-  <p>© 2026 CyberSafe | Stay Alert, Stay Protected</p>
-  <p>Cyber Awareness Educational Project</p>
+<p>🛡 CyberSafe | Cybersecurity Awareness Project</p>
+<p>Learn Today. Protect Tomorrow.</p>
 </footer>
 
 <script>
-
-// Password strength demonstration
-const password = document.getElementById("password");
-
-password.addEventListener("input", function() {
-  const value = password.value;
-  let score = 0;
-
-  if (value.length >= 8) score++;
-  if (/[A-Z]/.test(value)) score++;
-  if (/[a-z]/.test(value)) score++;
-  if (/[0-9]/.test(value)) score++;
-  if (/[^A-Za-z0-9]/.test(value)) score++;
-
-  let message = "Very weak";
-
-  if (score >= 2) message = "Weak";
-  if (score >= 3) message = "Moderate";
-  if (score >= 4) message = "Strong";
-  if (score === 5 && value.length >= 12) message = "Very strong";
-
-  document.getElementById("strength").textContent =
-    "Strength: " + (value.length ? message : "Not checked");
-});
-
-// Cyber awareness quiz
 const questions = [
-  {
-    question: "1. Should you share your OTP with strangers?",
-    answers: ["Yes", "No"],
-    correct: "No"
-  },
-  {
-    question: "2. What should you do with a suspicious link?",
-    answers: ["Click it", "Avoid and verify it"],
-    correct: "Avoid and verify it"
-  },
-  {
-    question: "3. Which password is safer?",
-    answers: ["123456", "A unique long password"],
-    correct: "A unique long password"
-  },
-  {
-    question: "4. What is phishing?",
-    answers: ["A cyber scam", "A computer update"],
-    correct: "A cyber scam"
-  },
-  {
-    question: "5. What is India's cybercrime helpline?",
-    answers: ["1930", "1000"],
-    correct: "1930"
-  }
+{
+q:"What should you do with a suspicious link?",
+a:["Click immediately","Verify before clicking","Share it"],
+correct:1
+},
+{
+q:"What is the purpose of 2FA?",
+a:["Add another security layer","Delete accounts","Increase internet speed"],
+correct:0
+},
+{
+q:"Should you share your OTP?",
+a:["Yes, always","Only with friends","Never share it"],
+correct:2
+},
+{
+q:"What is phishing?",
+a:["A computer game","A trick to steal information","A search engine"],
+correct:1
+}
 ];
 
-let currentQuestion = 0;
-let score = 0;
+let current=0;
+let answered=false;
 
-function showQuestion() {
-  const container = document.getElementById("quizContainer");
-  const result = document.getElementById("quizResult");
-
-  if (currentQuestion >= questions.length) {
-    container.innerHTML = "";
-    result.textContent =
-      "Quiz completed! Your score: " + score +
-      " / " + questions.length;
-
-    const restart = document.createElement("button");
-    restart.textContent = "Try Again";
-    restart.className = "btn";
-    restart.style.marginTop = "20px";
-
-    restart.onclick = function() {
-      currentQuestion = 0;
-      score = 0;
-      result.textContent = "";
-      showQuestion();
-    };
-
-    container.appendChild(restart);
-    return;
-  }
-
-  const q = questions[currentQuestion];
-  container.innerHTML = "";
-
-  const box = document.createElement("div");
-  box.className = "quiz-question";
-
-  const heading = document.createElement("h3");
-  heading.textContent = q.question;
-  box.appendChild(heading);
-
-  q.answers.forEach(function(answer) {
-    const button = document.createElement("button");
-    button.textContent = answer;
-
-    button.onclick = function() {
-      if (answer === q.correct) {
-        score++;
-      }
-
-      currentQuestion++;
-      showQuestion();
-    };
-
-    box.appendChild(button);
-  });
-
-  container.appendChild(box);
+function loadQuestion(){
+answered=false;
+document.getElementById("question").innerText=questions[current].q;
+document.getElementById("result").innerText="";
+document.getElementById("answers").innerHTML="";
+questions[current].a.forEach((answer,index)=>{
+let button=document.createElement("button");
+button.innerText=answer;
+button.onclick=()=>check(index===questions[current].correct);
+document.getElementById("answers").appendChild(button);
+});
 }
 
-showQuestion();
+function check(correct){
+if(answered)return;
+answered=true;
+document.getElementById("result").innerText=
+correct?"Correct! Great job! 🎉":"Not quite! Learn and try again.";
+}
 
-
-  // CyberSafe Upgrade 2.0
-
-// Loading screen
-window.addEventListener("load", function() {
-  const loader = document.getElementById("loader");
-
-  if (loader) {
-    loader.style.opacity = "0";
-
-    setTimeout(function() {
-      loader.style.display = "none";
-    }, 500);
-  }
-});
-
-// Scroll progress bar
-window.addEventListener("scroll", function() {
-  const scrollTop = document.documentElement.scrollTop;
-  const height = document.documentElement.scrollHeight -
-                 document.documentElement.clientHeight;
-
-  const progress = height > 0 ? (scrollTop / height) * 100 : 0;
-
-  document.getElementById("progressBar").style.width =
-    progress + "%";
-
-  // Back to top button
-  document.getElementById("topBtn").style.display =
-    scrollTop > 300 ? "block" : "none";
-});
-
-// Reveal animations
-const observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.15
-});
-
-document.querySelectorAll("section, .card").forEach(function(element) {
-    element.classList.add("reveal");
-    observer.observe(element);
-});
-
+function nextQuestion(){
+current=(current+1)%questions.length;
+loadQuestion();
+}
+loadQuestion();
 </script>
+
 </body>
 </html>
