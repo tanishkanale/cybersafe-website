@@ -248,6 +248,130 @@ loadQuestion();
 }
 loadQuestion();
 </script>
+<!-- CYBERSAFE INTERACTIVE QUIZ -->
+
+<section id="quiz" class="quiz-section">
+  <h2>🧠 Test Your Cybersecurity Knowledge</h2>
+  <p id="question">What does HTTPS indicate?</p>
+
+  <div id="answers">
+    <button onclick="answerQuiz(0)">A. A secure connection</button>
+    <button onclick="answerQuiz(1)">B. A social media app</button>
+    <button onclick="answerQuiz(2)">C. A computer virus</button>
+    <button onclick="answerQuiz(3)">D. A password</button>
+  </div>
+
+  <p id="feedback"></p>
+  <p id="score"></p>
+
+  <button onclick="nextQuestion()">Next Question →</button>
+</section>
+
+<style>
+.quiz-section {
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 25px;
+  text-align: center;
+  background: #101f35;
+  color: white;
+  border-radius: 15px;
+}
+
+.quiz-section button {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #00c9a7;
+  color: #061525;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.quiz-section button:hover {
+  background: #00f0c0;
+}
+</style>
+
+<script>
+const quizQuestions = [
+  {
+    q: "What does HTTPS indicate?",
+    a: ["A secure connection", "A social media app", "A virus", "A password"],
+    correct: 0
+  },
+  {
+    q: "What is phishing?",
+    a: ["Online shopping", "A cyber scam", "A game", "A browser"],
+    correct: 1
+  },
+  {
+    q: "Which is the strongest password?",
+    a: ["123456", "password", "Tanishka123", "R7#mP9!qL2"],
+    correct: 3
+  },
+  {
+    q: "What should you do with a suspicious link?",
+    a: ["Click it", "Share it", "Avoid clicking it", "Download it"],
+    correct: 2
+  }
+];
+
+let quizIndex = 0;
+let quizScore = 0;
+let answered = false;
+
+function answerQuiz(choice) {
+  if (answered) return;
+
+  answered = true;
+  const correct = quizQuestions[quizIndex].correct;
+
+  if (choice === correct) {
+    quizScore++;
+    document.getElementById("feedback").textContent =
+      "✅ Correct! Great job.";
+  } else {
+    document.getElementById("feedback").textContent =
+      "❌ Incorrect! Correct answer: " +
+      quizQuestions[quizIndex].a[correct];
+  }
+
+  document.getElementById("score").textContent =
+    "Score: " + quizScore + "/" + (quizIndex + 1);
+}
+
+function nextQuestion() {
+  quizIndex++;
+
+  if (quizIndex >= quizQuestions.length) {
+    document.getElementById("question").textContent =
+      "🎉 Quiz Completed!";
+    document.getElementById("answers").innerHTML = "";
+    document.getElementById("feedback").textContent =
+      "Your final score: " + quizScore + "/4";
+    document.getElementById("score").textContent =
+      "Keep learning and stay cyber safe!";
+    return;
+  }
+
+  answered = false;
+
+  const q = quizQuestions[quizIndex];
+  document.getElementById("question").textContent = q.q;
+
+  document.getElementById("answers").innerHTML =
+    q.a.map((answer, i) =>
+      `<button onclick="answerQuiz(${i})">${answer}</button>`
+    ).join("");
+
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("score").textContent = "";
+}
+ 
 
 </body>
 </html>
