@@ -599,6 +599,25 @@ function nextCyberQuestion() {
 }
 
 startCyberQuiz();
+ 
+document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("visitorName").value.trim();
+  const email = document.getElementById("visitorEmail").value.trim();
+  const message = document.getElementById("visitorMessage").value.trim();
+
+  if (!name || !email || !message) {
+    alert("Please fill in all fields!");
+    return;
+  }
+
+  document.getElementById("feedbackStatus").textContent =
+    "Thank you for your feedback! 💙";
+
+  this.reset();
+});
+ 
 </script>
  
 <section id="threats" class="threats-section">
