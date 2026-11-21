@@ -22,12 +22,19 @@ CyberSafe is a cybersecurity awareness website designed to help users understand
 
 To spread cybersecurity awareness and encourage safe internet practices through an interactive and educational platform.
 
-👩‍💻 Created By
-
-Tanishka Nale
-
-First Year Engineering Student
 
 ---
 
 Stay Alert. Stay Secure. Stay CyberSafe.
+
+## 🚀 Future Improvements
+
+- More cybersecurity quizzes
+- Interactive learning modules
+- Cybersecurity awareness resources
+- Improved mobile responsiveness
+
+## 👩‍💻 Developer
+
+Created by Tanishka Nale
+FY Engineering
