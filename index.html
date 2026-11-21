@@ -1416,6 +1416,38 @@ document.addEventListener("DOMContentLoaded", function () {
   color: #e0eaf5;
   line-height: 1.6;
  }
- 
+ @media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 5px;
+    }
+
+    .hero {
+        padding: 55px 5%;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+ }
 </style>
 </html>
