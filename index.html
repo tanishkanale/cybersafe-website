@@ -1075,50 +1075,33 @@ document.getElementById("feedbackForm").addEventListener("submit", function(even
 </section>
  
 <section id="safety-tips" class="safety-tips">
-  <div class="section-header">
-    <h2>Stay Safe Online</h2>
-    <p>Simple habits to protect yourself in the digital world.</p>
-  </div>
+  
+document.addEventListener("DOMContentLoaded", function () {
 
-  <div class="tips-container">
+  const form = document.getElementById("feedbackForm");
 
-    <div class="tip-card">
-      <span>🔐</span>
-      <h3>Strong Passwords</h3>
-      <p>Use long, unique passwords for every account.</p>
-    </div>
+  if (form) {
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
 
-    <div class="tip-card">
-      <span>🛡️</span>
-      <h3>Enable 2FA</h3>
-      <p>Add an extra layer of security to your accounts.</p>
-    </div>
+      const name = document.getElementById("visitorName").value.trim();
+      const email = document.getElementById("visitorEmail").value.trim();
+      const message = document.getElementById("visitorMessage").value.trim();
 
-    <div class="tip-card">
-      <span>📧</span>
-      <h3>Avoid Phishing</h3>
-      <p>Never click suspicious links or unknown attachments.</p>
-    </div>
+      if (!name || !email || !message) {
+        alert("Please fill in all fields!");
+        return;
+      }
 
-    <div class="tip-card">
-      <span>📶</span>
-      <h3>Safe Public Wi-Fi</h3>
-      <p>Avoid sensitive transactions on unsecured networks.</p>
-    </div>
+      document.getElementById("feedbackStatus").textContent =
+        "Thank you for your feedback! 💙";
 
-    <div class="tip-card">
-      <span>📱</span>
-      <h3>Secure Your Device</h3>
-      <p>Keep your phone and apps updated.</p>
-    </div>
+      form.reset();
+    });
+  }
 
-    <div class="tip-card">
-      <span>👤</span>
-      <h3>Privacy Protection</h3>
-      <p>Think before sharing personal information online.</p>
-    </div>
-
-  </div>
+});
+ 
 </section>
  
 
