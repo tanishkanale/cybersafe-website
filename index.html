@@ -1116,6 +1116,21 @@ document.getElementById("feedbackForm").addEventListener("submit", function(even
   <p>© 2026 CyberSafe | Created by Tanishka Nale</p>
   <p>Stay Alert. Stay Secure. Stay CyberSafe.</p>
  </footer>
+ 
+<script>
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        themeToggle.textContent = "☀️ Light Mode";
+    } else {
+        themeToggle.textContent = "🌙 Dark Mode";
+    }
+});
+</script>
+ 
  </body>
  
 <section id="threats" class="threats-section">
