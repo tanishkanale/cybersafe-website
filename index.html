@@ -1001,6 +1001,54 @@ startCyberQuiz();
 
   </div>
 </section>
+ 
+<section id="safety-tips" class="safety-tips">
+  <div class="section-header">
+    <h2>Stay Safe Online</h2>
+    <p>Simple habits to protect yourself in the digital world.</p>
+  </div>
+
+  <div class="tips-container">
+
+    <div class="tip-card">
+      <span>🔐</span>
+      <h3>Strong Passwords</h3>
+      <p>Use long, unique passwords for every account.</p>
+    </div>
+
+    <div class="tip-card">
+      <span>🛡️</span>
+      <h3>Enable 2FA</h3>
+      <p>Add an extra layer of security to your accounts.</p>
+    </div>
+
+    <div class="tip-card">
+      <span>📧</span>
+      <h3>Avoid Phishing</h3>
+      <p>Never click suspicious links or unknown attachments.</p>
+    </div>
+
+    <div class="tip-card">
+      <span>📶</span>
+      <h3>Safe Public Wi-Fi</h3>
+      <p>Avoid sensitive transactions on unsecured networks.</p>
+    </div>
+
+    <div class="tip-card">
+      <span>📱</span>
+      <h3>Secure Your Device</h3>
+      <p>Keep your phone and apps updated.</p>
+    </div>
+
+    <div class="tip-card">
+      <span>👤</span>
+      <h3>Privacy Protection</h3>
+      <p>Think before sharing personal information online.</p>
+    </div>
+
+  </div>
+</section>
+ 
 
 <style>
 .threats-section {
@@ -1064,6 +1112,46 @@ startCyberQuiz();
 
 .threat-card strong {
   color: #4ade80;
+
+.safety-tips {
+  padding: 60px 8%;
+  text-align: center;
 }
+
+.tips-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 35px;
+}
+
+.tip-card {
+  background: #111d35;
+  padding: 28px 20px;
+  border: 1px solid #263b60;
+  border-radius: 15px;
+  transition: 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-7px);
+  border-color: #00bfff;
+}
+
+.tip-card span {
+  font-size: 35px;
+}
+
+.tip-card h3 {
+  color: #00bfff;
+  margin: 15px 0;
+}
+
+.tip-card p {
+  color: #c5cee0;
+  line-height: 1.6;
+}
+}
+ 
 </style>
 </html>
