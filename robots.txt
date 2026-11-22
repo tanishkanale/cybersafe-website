@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tanishkanale.github.io/cybersafe-website/sitemap.xml
