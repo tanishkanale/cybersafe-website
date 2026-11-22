@@ -37,6 +37,17 @@
 <footer>
     <p>&copy; 2026 CyberSafe. All rights reserved.</p>
 </footer>
+<script>
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('focus', function() {
+      this.style.outline = '3px solid #00bcd4';
+      this.style.outlineOffset = '4px';
+    });
 
+    link.addEventListener('blur', function() {
+      this.style.outline = '';
+    });
+  });
+</script>
 </body>
 </html>
