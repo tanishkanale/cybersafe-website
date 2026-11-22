@@ -1,0 +1,4 @@
+Contact: mailto:your-email@tanishkanale16@gmail.com
+Preferred-Languages: en
+Canonical: https://tanishkanale.github.io/cybersafe-website/.well-known/security.txt
+Policy: https://tanishkanale.github.io/cybersafe-website/
